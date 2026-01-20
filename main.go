@@ -23,6 +23,9 @@ func main() {
 
 	outputImagePath := os.Args[2]
 	nw, err := os.Create(outputImagePath)
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	if err := jpeg.Encode(nw, image, &jpeg.Options{Quality: 60}); err != nil {
 		log.Fatal(err)
